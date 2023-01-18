@@ -45,6 +45,7 @@ pipelines:
         execution:
           onExecute:
             - echo "Preparing the code base"
+            - echo ${res_matrix_repo_resourcePath}
             - pushd "${res_matrix_repo_resourcePath}/app"
             - echo "Starting npm install"
             - npm install
