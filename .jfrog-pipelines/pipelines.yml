@@ -46,9 +46,11 @@ pipelines:
           onExecute:
             - echo "Preparing the code base"
             - pushd "${res_matrix_repo_resourcePath}/app"
+            - echo "Starting npm install"
             - npm install
             - popd
             - mkdir -p app
+            - echo "Starting copy"
             - cp -r "${res_matrix_repo_resourcePath}/app/." ./app/
 
       - name: test
