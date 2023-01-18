@@ -1,2 +1,2 @@
-repoPath: RjSH1/jfrog-pipelines-matrix-example
-gitProvider: ACMEGit
+repoPath: harshkumar1/MatrixBuild
+gitProvider: Github
