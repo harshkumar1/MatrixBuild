@@ -35,6 +35,28 @@ pipelines:
             - echo "Executing matrix step on ${steplet_id}"
             - echo "Variation animal = ${animal}, mineral = ${mineral}, vegetable = ${vegetable}"
 
+  - name: matrix_2_dimension_pipeline_envs
+    steps:
+      - name: matrix_step
+        type: Matrix
+        stepMode: Bash
+        configuration:
+          inputResources:
+            - name: matrix_repo
+        stepletMultipliers:
+          environmentVariables:             # Sets of environment variables for steplets
+            - animal:    dog                # - Set 1
+            - animal:    goat               # - Set 2
+            - animal:    lizard             # - Set 3
+          environmentVariables:             # Sets of environment variables for steplets
+            - mineral:    copper                # - Set 1
+            - mineral:    iron               # - Set 2
+            - mineral:    gold             # - Set 3
+        execution:
+          onExecute:
+            - echo "Executing matrix step on ${steplet_id}"
+            - echo "Variation animal = ${animal}, mineral = ${mineral}"
+
   - name: matrix_two_dimension_pipeline
     steps:
       - name: setup
